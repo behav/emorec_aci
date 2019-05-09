@@ -8,4 +8,5 @@ MAINTAINER Daniel Albohn <d.albohn@gmail.com>
 #ACI mappings so you can access your files.
 mkdir -p /storage/home
 mkdir -p /storage/work
+mkdir -p /storage/scratch
 mkdir -p /gpfs/group

@@ -18,12 +18,15 @@ qsub -A open -I -X -l walltime=24:00:00 -l nodes=5:ppn=10 -l pmem=20gb
 Start the container, and execute the `video_analysis.py` script.
 
 ```
-singularity pull -n emorec_aci.simg shub://d-bohn/emorec_aci
+singularity pull -n emorec_aci.simg shub://d-bohn/emorec_aci:16.04
 
 singularity exec emorec_aci.simg /bin/bash
 
 python3 /opt/emorec/video_analysis.py VIDEOFILE OUTDIR SAVENAME
 ```
+
+**IMPORTANT: You must specify that you want the 16.04 version of this build,
+as the master branch runs on too new a kernel**
 
 The arguments to be passed (in order) are:
 
