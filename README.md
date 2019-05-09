@@ -22,18 +22,18 @@ singularity pull -n emorec_aci.simg shub://d-bohn/emorec_aci
 
 singularity exec emorec_aci.simg /bin/bash
 
-python3 /opt/emorec/video_analysis.py VIDEOFILE OUTPUTDIR SAVENAME
+python3 /opt/emorec/video_analysis.py VIDEOFILE OUTDIR SAVENAME
 ```
 
 The arguments to be passed (in order) are:
 
-    - Video file: Full path to video file to be analyzed
+  - **VIDEOFILE**: Full path to video file to be analyzed
 
-    - output directory: Full path to a writable director to store
-    results (e.g., `/storage/home`)
+  - **OUTDIR**: Full path to a writable director to store
+  results (e.g., `/storage/home`)
 
-    - Save name: File name to save the results (e.g., `data.csv`).
-    Will save automatically to output directory.
+  - **SAVENAME**: File name to save the results (e.g., `data.csv`).
+  It will save automatically to the specified output directory.
 
 ## Image Builds
 The emorec_aci docker image was built on docker hub.
@@ -56,7 +56,7 @@ mkdir -p /gpfs/group
 ```
 
 ## Notes
-    - Create command function for automatic execution of `video_analysis.py`
+  - Create command function for automatic execution of `video_analysis.py`
     script
 
-    - Add a `ArgumentParser` and help files.
+  - Add a `ArgumentParser` and help files.
