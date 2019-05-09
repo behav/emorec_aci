@@ -9,18 +9,36 @@ ACI HPC clusters.
 ssh USERID@aci-b.aci.ics.psu.edu -X -Y
 ```
 
-Start an interactive session using `qsub`. We need a lot of memory for the CPU version
-of OpenPose
+Start an interactive session using `qsub`.
 
 ```
 qsub -A open -I -X -l walltime=24:00:00 -l nodes=5:ppn=10 -l pmem=20gb
 ```
 
+Start the container, and execute the `video_analysis.py` script.
+
+```
+singularity pull -n emorec_aci.simg shub://d-bohn/emorec_aci
+
+singularity exec emorec_aci.simg /bin/bash
+
+python3 /opt/emorec/video_analysis.py VIDEOFILE OUTPUTDIR SAVENAME
+```
+
+The arguments to be passed (in order) are:
+
+    - Video file: Full path to video file to be analyzed
+
+    - output directory: Full path to a writable director to store
+    results (e.g., `/storage/home`)
+
+    - Save name: File name to save the results (e.g., `data.csv`).
+    Will save automatically to output directory.
 
 ## Image Builds
-The OpenPose docker image was built on docker hub.
+The emorec_aci docker image was built on docker hub.
 
-The OpenPose singularity image was built using the docker image base and
+The emorec_aci singularity image was built using the docker image base and
 converting it to a singularity image via singularity hub.
 
 Setup for linking Github with Docker Hub and Singularity Hub can be found here:
@@ -34,10 +52,11 @@ from the docker image, as well as adding access to folders within ACI,  specific
 # ACI mappings so you can access your files.
 mkdir -p /storage/home
 mkdir -p /storage/work
-mkdir -p /storage/scratch
 mkdir -p /gpfs/group
 ```
 
 ## Notes
     - Create command function for automatic execution of `video_analysis.py`
     script
+
+    - Add a `ArgumentParser` and help files.

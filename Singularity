@@ -1,5 +1,5 @@
 BOOTSTRAP: docker
-FROM: dalbohn/openpose_aci
+FROM: dalbohn/emorec_aci
 
 %labels
 MAINTAINER Daniel Albohn <d.albohn@gmail.com>
