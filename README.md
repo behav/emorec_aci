@@ -1,4 +1,4 @@
-# openpose_aci
+# Facial Emotion Recognition
 Code and workflow for building some emotion recognition models on PSU
 ACI HPC clusters.
 
@@ -56,6 +56,9 @@ mkdir -p /gpfs/group
 ```
 
 ## Notes
+  - The kernel on PSU ACI is too old to run Ubuntu 18.04, so I had to
+  downgrade to Ubuntu 16.04 and shoehorn in Python3.6
+
   - Create command function for automatic execution of `video_analysis.py`
     script
 

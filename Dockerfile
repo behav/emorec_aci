@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 LABEL author="justinshenk <https://github.com/justinshenk/fer>"
 LABEL author="ipazc <https://github.com/ipazc/mtcnn/>"
@@ -7,11 +7,16 @@ LABEL maintainer="Daniel Albohn <d.albohn@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install python3.6
+
+RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && \
+  python3.6 get-pip.py --user
+
 RUN apt-get update -y && apt-get --assume-yes install \
-    python3-dev \
     libopencv-dev \
     python-opencv \
-    python3-pip \
     git \
     nano
     # Maybe for the future
