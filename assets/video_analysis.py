@@ -4,7 +4,7 @@ from fer.fer import FER
 from fer.classes import Video
 import json
 import sys
-import argparser
+import argparse
 
 # parser = argparse.ArgumentParser(description='Analyze video frames for emotion expressions. Returns analyzed video (.mp4) and emotion labels (.csv)')
 #
@@ -15,7 +15,7 @@ import argparser
 # parser.add_argument('-vf', '--videofile', metavar='vf',
 #                     type = argparse.FileType('r'), nargs = 1,
 #                     help='Full path to video to analyze.')
-# 
+#
 # parser.add_argument('-vf', '--videofile', metavar='vf',
 #                     type = argparse.FileType('r'), nargs = 1,
 #                     help='Full path to video to analyze.')
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     try:
         outdir = sys.argv[2]
     except:
-        outdir="output"
+        outdir="output/"
 
     try:
         savename = sys.argv[3]
@@ -41,4 +41,4 @@ if __name__ == "__main__":
 
     raw_data = video.analyze(detector, display=False, output="pandas", annotate_frames=False, save_frames=False)
 
-    raw_data.to_csv(outdir+"/"+savename)
+    raw_data.to_csv(outdir+savename)
