@@ -2,6 +2,9 @@
 Code and workflow for building some emotion recognition models on PSU
 ACI HPC clusters.
 
+**IMPORTANT**: Must use the `16.04` branch for ACI. The kernel on ACI is too old to run
+Ubuntu 18.04.
+
 ## Quick Start
 `ssh` into the PSU ACI HPC with X11 flags.
 
