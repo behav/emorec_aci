@@ -34,7 +34,7 @@ RUN cd /opt && \
 RUN cd /opt/emorec && \
     pip3 install -e .
 
-RUN pip3 install requests argparse
+RUN pip3 install requests argparse opencv-contrib-python
 
 ADD ./assets/video_analysis.py /opt/emorec/video_analysis.py
 
