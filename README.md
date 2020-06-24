@@ -1,4 +1,4 @@
-# openpose_aci
+# Emotion Recognition ACI
 Code and workflow for building some emotion recognition models on PSU
 ACI HPC clusters.
 
